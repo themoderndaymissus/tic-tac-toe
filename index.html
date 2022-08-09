@@ -8,12 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ewert&display=swap" rel="stylesheet"> 
     <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="tic-tac-toe/style.css"> 
-    <style> 
-    p {
-    background-image: url('/tic-tac-toe/resources/vecteezy_wild-west-modern-minimal-flat-background_.jpg');
-    }
-    </style>
+    <link rel="stylesheet" href="css/style.css"> 
 
 <head>
 <body>
@@ -22,20 +17,24 @@
 
     <!-- Write Out Game Instructions Here -->
 
-    <div id="grid">
+    <div id="board">
         <!-- Grid start  -->
-        <div data-index="1" class="box right-border bottom-border">X</div>
-        <div data-index="2" class="box right-border bottom-border">X</div>
-        <div data-index="3" class="box bottom-border">X</div>
-        <div data-index="4" class="box right-border bottom-border">X</div>
-        <div data-index="5" class="box right-border bottom-border">X</div>
-        <div data-index="6" class="box bottom-border">X</div>
-        <div data-index="7" class="box right-border">X</div>
-        <div data-index="8" class="box right-border ">X</div>
-        <div data-index="9" class="box">X</div>
-        <!-- Grid ends --> 
+        <div data-index="1" class="box right-border bottom-border"></div>
+        <div data-index="2" class="box right-border bottom-border"></div>
+        <div data-index="3" class="box bottom-border"></div>
+        <div data-index="4" class="box right-border bottom-border"></div>
+        <div data-index="5" class="box right-border bottom-border"></div>
+        <div data-index="6" class="box bottom-border"></div>
+        <div data-index="7" class="box right-border"></div>
+        <div data-index="8" class="box right-border "></div>
+        <div data-index="9" class="box"></div>   
+        <div id="strike" class="strike"></div>
     </div>
-<script scr="tic-tac-toe/main.js"></script>
+    <div id="game-over-area" class="hidden">
+        <h2 id="game-over-text">Winner is X</h2>
+        <button id="play-again">Play Again</button>
+    </div>
+<script src="js/main.js"></script>
 </body>
 
 </html>
