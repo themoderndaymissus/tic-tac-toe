@@ -45,7 +45,7 @@
 //     A README.md file in your repo with a link to the live game, a list of features, explanations of the technologies used, the approach taken, known bugs, etc. Also, a screenshot or two is nice to have.
 //     On Friday of project week everyone individually presents their project to the class, with an overview of the app and a brief code tour of the highlights (15 min total, maximum).
 
-// Defining the player types
+// Player types (X and O)
 const boxes = document.querySelectorAll(".box");
 const PLAYER_X = 'X';
 const PLAYER_O = 'O';
@@ -60,22 +60,23 @@ const gameOverArea = document.getElementById("game-over-area");
 const gameOverText = document.getElementById("game-over-text");
 const playAgain = document.getElementById("play-again");
 
-// Sound Effects //
-// const gameOverSound = new Audio('tic-tac-toe/resources/audio/gameover.wav');
-// const clickSound = new Audio("tic-tac-toe/resources/audio/click.wav");
+// Sound Effects // 
+// const gameOverSound = new Audio('tic-tac-toe/resources/audio/gameover.wav'); 
+// const clickingSound = new Audio("tic-tac-toe/resources/audio/clickingSound.wav");
+// const winnerSound = new Audio - 
 
-// Looping/checking each box to identify which box was cliked //
+// Loop to check each box to identify which box was cliked //
 boxes.forEach((box) => box.addEventListener("click", boxClick));
 
 function setHoverText(){
-    // remove all hover text
+// remove all hover text values
     boxes.forEach(box=>{
         box.classList.remove("x-hover")
         box.classList.remove("o-hover")
     });
 // string - defining what class based on the current players turn
     const hoverClass = `${turn.toLowerCase()}-hover`;
-// looping over each box to identify what hover is needed based on if there is any text inside of the box
+// loop through each box to identify what hover is needed based on if there is any text inside of the box
     boxes.forEach(box=>{
         if(box.innerText == ""){
             box.classList.add(hoverClass);
@@ -85,60 +86,49 @@ function setHoverText(){
 
 setHoverText();
 
-// This identifies if the game over box is being displayed by checking the class "visible" or "hidden", if it is visible this will stop executing and return. //
+// Game over box display - class "visible" or "hidden", if it is visible - return. //
 function boxClick(event) {
     if(gameOverArea.classList.contains('visible')){
         return;
     }
-// Reference to the HTML box elements, this is captured in the data-index of each boxNumber and what boxNumber that was clicked. This checks the box value if an (X or O) are inside of the box, it will stop executing and return. //
+// HTML box elements and the data-index of each boxNumber and what boxNumber that was clicked. This checks the box value (X or O) - return. //
     const box = event.target;
     const boxNumber = box.dataset.index;
     if (box.innerText != "") {
         return;
     }
-// Checking what players turn it is, when PLAYER_X turn
+// Check for next players turn - PLAYER_X turn
     if (turn === PLAYER_X) {
         box.innerText = PLAYER_X;
         boardState[boxNumber -1] = PLAYER_X;
         turn = PLAYER_O;
     }
-// Checking what players turn it is, when PLAYER_O turn  
+// Check for next players turn - PLAYER_O turn  
     else {
         box.innerText = PLAYER_O;
         boardState[boxNumber -1] = PLAYER_O;
         turn = PLAYER_X;
 
     }
-    // clickSound.play(); - REVISIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // clickSound.play(); - Need to fix!!!!!!!!!!!!
+
     setHoverText();
     checkWinner();
 }
 
-// Checking for the winner via all potential winning combinations
-function checkWinner(){
-    for (let i = 0; winningCombinations.length; i ++){
-        console.log(winningCombinations[i]);
-        
-    }
-//     for(const winningCombination of winningCombinations){
-//         console.log(winningCombination);
-//     }
-}
+// check for winner 
 
-// create for loop for array - not object. 
 
-// create data structure to check through each of the boxes to get the winner - check for row, column and diagonal x 3 //
+// check for draw
 
-const winningCombinations = [
-    // rows //
-    { combo:[1, 2, 3], strikeClass: "strike-row-1" },
-    { combo:[4, 5, 6], strikeClass: "strike-row-2" },
-    { combo:[7, 8, 9], strikeClass: "strike-row-3" },
-    // columns //
-    { combo:[1, 4, 7], strikeClass: "strike-column-1" },
-    { combo:[2, 5, 8], strikeClass: "strike-column-2" },
-    { combo:[3, 6, 9], strikeClass: "strike-column-3" },
-    // diagonals //
-    { combo:[1, 5, 9], strikeClass: "strike-diagonal-1" },
-    { combo:[3, 5, 7], strikeClass: "strike-diagonal-2" },
-]
+
+// reset game to appear
+
+
+// potential winning combos
+
+
+
+
+
+
